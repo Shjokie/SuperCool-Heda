@@ -23,12 +23,43 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+  <meta name="viewport" content="initial-scale=5.0, user-scalable=no">
+    <meta charset="utf-8">
+    
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    <style>
+      #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script>
+function initialize() {
+  var myLatlng = new google.maps.LatLng(-1.2921,36.8219);
+  var mapOptions = {
+    zoom: 10,
+    center: myLatlng
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Hello World!'
+  });
+}
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
   </head>
   <body class="skin-blue">
     <div class="wrapper">
       
       <header class="main-header">
-        <a href="../../index2.html" class="logo"><b>HEDA</b></a>
+        <a href="../index2.html" class="logo"><b>HEDA</b></a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
@@ -54,7 +85,7 @@
                       <li><!-- start message -->
                         <a href="#">
                           <div class="pull-left">
-                            <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+                            <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
                           </div>
                           <h4>
                             Support Team
@@ -66,7 +97,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
+                            <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
                           <h4>
                             AdminLTE Design Team
@@ -78,7 +109,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
+                            <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
                           <h4>
                             Developers
@@ -90,7 +121,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
+                            <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
                           <h4>
                             Sales Department
@@ -102,7 +133,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
+                            <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
                           </div>
                           <h4>
                             Reviewers
@@ -150,7 +181,7 @@
                       </li>
                       <li>
                         <a href="#">
-                          <i class="fa fa-user text-red"></i> You changed your username
+                          <i class="fa fa-user text-light-blue"></i> You changed your username
                         </a>
                       </li>
                     </ul>
@@ -231,13 +262,13 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">Bettirose Ngugi</span>
+                  <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                  <span class="hidden-xs">Alexander Pierce</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
                       Bettirose Ngugi - Admin
                       <small>Member since Nov. 2012</small>
@@ -270,7 +301,7 @@
           </div>
         </nav>
       </header>
-     <!-- Left side column. contains the logo and sidebar -->
+      <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
@@ -308,7 +339,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="clientinfo.html"><i class="fa fa-circle-o"></i> Add new Respondents</a></li>
-                <li><a href="viewclients.html"><i class="fa fa-circle-o"></i> View Respondents</a></li>
+                <li><a href="viewclients1.html"><i class="fa fa-circle-o"></i> View Respondents</a></li>
                 <li><a href="clientinfo.html"><i class="fa fa-circle-o"></i>Edit Respondents details</a></li>
                 
               </ul>
@@ -366,174 +397,47 @@
         </section>
         <!-- /.sidebar -->
       </aside>
+
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-           <style type="text/css">
-    .bs-example{
-      margin: 20px;
-    }
-    .form-control{
-     
-      float: left;
-      width: 10.333333%;
-    }
-    select{
-      margin-right:10px;
-    }
-    
-</style>
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            View  Clients
+            View Respondent's Details
             <small></small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Forms</a></li>
-            <li class="active">View Clients</li>
+            <li><a href="#">Tables</a></li>
+            <li class="active">Data tables</li>
           </ol>
-          <label>Records per Page<span style="padding-left:60px">View by Location</span><span style="padding-left:55px">View by Fuel</span> </label><br/>
-          <select class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-        
-        <select class="form-control" name="county">
-                                           
-                                          <option>Baringo.</option>
-                                          <option>Bomet.</option>
-                                          <option>Bung'oma.</option>
-                                          <option>Busia.</option>
-                                          <option>Embu.</option>
-                                          <option>Elgeyo/Marakwet.</option>
-                                          <option>Homa Bay.</option>
-                                          <option>Isiolo.</option>
-                                          <option>Garissa</option>
-                                          <option>Kajiado.</option>
-                                          <option>Kakamega.</option>
-                                          <option>Kericho.</option>
-                                          <option>Kiambu.</option>
-                                          <option>Kilifi</option>
-                                          <option>Kirinyaga.</option>
-                                          <option>Kisii.</option>
-                                          <option>Kisumu.</option>
-                                          <option>Kitui.</option>
-                                          <option>Kwale</option>
-                                          <option>Laikipia.</option>
-                                          <option>Makueni.</option>
-                                          <option>Lamu</option>
-                                          <option>Meru.</option>
-                                          <option>Marsabit.</option>
-                                          <option>Mandera</option>
-                                          <option>Migori.</option>
-                                          <option>Murang'a</option>.
-                                          <option>Nairobi City.</option>
-                                          <option>Nakuru.</option>
-                                          <option>Narok.</option>
-                                          <option>Nyamira</option>
-                                          <option>Nyandarua</option>
-                                          <option>Nandi.</option>
-                                          <option>Nyeri.</option>
-                                          <option>Machakos.</option>
-                                          <option>Samburu.</option>
-                                          <option>Siaya.</option>
-                                          <option>Taita Taveta</option>
-                                          <option>Tana River</option>
-                                          <option>Tharaka Nithi.</option>
-                                          <option>Trans Nzoia.</option>
-                                          <option>Turkana.</option>
-                                          <option>Uasin Gishu.</option>
-                                          <option>Vihiga.</option>
-                                          <option>Wajir</option>
-                                          <option>West Pokot.</option>                                        
-                                        </select>
-          
-          <select class="form-control" >
-          
-          <option>Charcoal</option>
-          <option>Firewood</option>
-          <option>LPG</option>
-          <option>Kerosene</option>
-          <option>Briquettes</option>
-        </select>
         </section>
-      
 
         <!-- Main content -->
         <section class="content">
           <div class="row">
-            <!-- left column -->
-            <div class="col-md-6">
-              <!-- general form elements -->
-              <div class="box box-primary">
-         
-</head>
-<body>
-<div class="bs-example">
-    <table class="table table-hover" align="center" >
-        <thead>
-            <tr>
-                <th>Row</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>County</th>
-                <th>Fuel </th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>John</td>
-                <td>Carter</td>
-                <td>Marsabit</td>
-                <td>LPG</td>
-                <td><a class="btn btn-default" href="clientinfo.html" role="button">View</a></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Peter</td>
-                <td>Parker</td>
-                <td>Kitale</td>
-                <td>Briquettes</td>
-                <td><a class="btn btn-default" href="clientinfo.html" role="button">View</a></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>John</td>
-                <td>Rambo</td>
-                <td>Muranga</td>
-                <td>Charcoal</td>
-                <td><a class="btn btn-default" href="clientinfo.html" role="button">View</a></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-                
-              </div><!-- /.box -->
+            <div class="col-xs-12">
+              
 
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Respondents Map</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
     
-
-
-
-
-
-                 
-                </div><!-- /.box-body -->
+ 
+    <div id="map-canvas"></div>
+  </div><!-- /.box-body -->
               </div><!-- /.box -->
-            </div><!--/.col (right) -->
-          </div>   <!-- /.row -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.0
         </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">EED Advisory</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
       </footer>
     </div><!-- ./wrapper -->
 
@@ -541,10 +445,31 @@
     <script src="../../plugins/jQuery/jQuery-2.1.3.min.js"></script>
     <!-- Bootstrap 3.3.2 JS -->
     <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- DATA TABES SCRIPT -->
+    <script src="../../plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="../../plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <!-- SlimScroll -->
+    <script src="../../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- FastClick -->
     <script src='../../plugins/fastclick/fastclick.min.js'></script>
     <!-- AdminLTE App -->
     <script src="../../dist/js/app.min.js" type="text/javascript"></script>
     
+
+    <!-- page script -->
+    <script type="text/javascript">
+      $(function () {
+        $("#example1").dataTable();
+        $('#example2').dataTable({
+          "bPaginate": true,
+          "bLengthChange": false,
+          "bFilter": false,
+          "bSort": true,
+          "bInfo": true,
+          "bAutoWidth": false
+        });
+      });
+    </script>
+
   </body>
 </html>
