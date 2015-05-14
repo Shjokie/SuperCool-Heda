@@ -1,3 +1,9 @@
+<?php
+if(isset($_POST['submit'])){
+
+}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -195,7 +201,7 @@
                   <h3 class="box-title">Quick Example</h3>
                 </div> /.box-header -->
                 <!-- form start -->
-                <form role="form">
+                <form role="form" name="form" method="POST">
                   <div class="box-body">
                     
                     
@@ -590,7 +596,7 @@
                   
 
                   <div class="form-group">
-                    <center><button type="submit" class="btn btn-primary">Submit</button></center>
+                    <center><button type="submit" class="btn btn-primary" name='submit'>Submit</button></center>
                   </div>
                         </dd>
                 </dl>
