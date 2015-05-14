@@ -338,9 +338,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 <span class="label label-primary pull-right"></span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="clientinfo.html"><i class="fa fa-circle-o"></i> Add new Respondents</a></li>
+                <li><a href="clientinfo.php"><i class="fa fa-circle-o"></i> Add new Respondents</a></li>
                 <li><a href="viewclients1.html"><i class="fa fa-circle-o"></i> View Respondents</a></li>
-                <li><a href="clientinfo.html"><i class="fa fa-circle-o"></i>Edit Respondents details</a></li>
+                <li><a href="clientinfo.php"><i class="fa fa-circle-o"></i>Edit Respondents details</a></li>
                 
               </ul>
             </li>

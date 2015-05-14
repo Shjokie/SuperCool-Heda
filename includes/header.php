@@ -280,7 +280,7 @@
                 <span class="label label-primary pull-right"></span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/forms/clientinfo.html"><i class="fa fa-circle-o"></i> Add new Respondent</a></li>
+                <li><a href="pages/forms/clientinfo.php"><i class="fa fa-circle-o"></i> Add new Respondent</a></li>
                 <li><a href="pages/forms/viewclients1.html"><i class="fa fa-circle-o"></i> View Respondent</a></li>
                 <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i>Edit Respondent details</a></li>
                 
