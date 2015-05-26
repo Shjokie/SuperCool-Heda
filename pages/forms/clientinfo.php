@@ -1,3 +1,12 @@
+<?php
+$firstName=$surName=$gender=$county=$ward=$nearestTown=$gpsValues=$householdLocation=$phoneNo=$householdTenure=$connected=$solarPanelPower=$biogasDigestorPower=$dieselGeneratorPower=$batterySystemPower= $windPower=$charcoalUse= $firewoodUse= $paraffinUse= $briquttesUse=$lpgUse= $solarBulbsNo= $electricBulbsNo= $koroboiNo=$paraffinLampNo= $gasLampNo= $batteryTorchNo= $blackwhiteTvNo=$colouredTvNo= $mobilePhoneNo= $radioNo= $dvdPlayerNo= $fridgeNo=$electricWaterHeaterNo= $computerNo= $electricIronboxNo= $householdSize=$householdType= $roofStructure= $wallStructure= $drinkingWaterSource=$householdRooms= $earningPeopleNo= $mainSourceOfIncome= $totalIncome="test";
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -95,7 +104,7 @@
             </div>
           </div>
           <!-- search form -->
-          <form action="#" method="get" class="sidebar-form">
+          <form method="post" class="sidebar-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="input-group">
               <input type="text" name="q" class="form-control" placeholder="Search..."/>
               <span class="input-group-btn">
@@ -145,8 +154,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="adduser.html"><i class="fa fa-circle-o"></i> Add User</a></li>
-                <li><a href="viewusers.html"><i class="fa fa-circle-o"></i> View Users</a></li>
+                <li><a href="adduser.php"><i class="fa fa-circle-o"></i> Add User</a></li>
+                <li><a href="viewusers.php"><i class="fa fa-circle-o"></i> View Users</a></li>
                 <li><a href="edituserdetails.html"><i class="fa fa-circle-o"></i> Edit User Info</a></li>
                 
               </ul>
@@ -205,23 +214,22 @@
                       <dd class="accordion__content">
                         <div class="form-group">
                                       <label for="firstname">First Name</label>
-                                          <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter First Name Here">
+                                      <input type="text" class="form-control" value="<?php echo $firstName ?>" id="fname" name="firstName" placeholder="Enter First Name Here">
                           </div>
                           <div class="form-group">
                                           <label for="surname">Surname</label>
-                                          <input type="text" class="form-control" id="sname" name="sname" placeholder="Enter Surname Here">
+                                          <input type="text" class="form-control" id="sname" value="<?php echo $surName ?>" name="surName" placeholder="Enter Surname Here">
                             </div>
                              <div class="form-group">
                                           <label for="surname">Gender</label>
-                                        <select class="form-control" name="gender">
+                                        <select class="form-control" name="gender" value="<?php echo $gender; ?>">
                                           <option>Male</option>
-                                          <option>Female</option>                                          
+                                          <option>Female</option>
                                         </select>
                             </div>
                             <div class="form-group">
                                           <label for="counties">County</label>
-                                        <select class="form-control" name="county">
-                                           
+                                        <select class="form-control" name="county" value="<?php echo $county ?>">                                           
                                           <option>Baringo.</option>
                                           <option>Bomet.</option>
                                           <option>Bung'oma.</option>
@@ -272,19 +280,19 @@
                             </div>
                             <div class="form-group">
                                           <label for="ward">Ward</label>
-                                          <input type="text" class="form-control" id="ward" name="ward" placeholder="Enter Ward Name Here">
+                                          <input type="text" class="form-control" id="ward" name="ward" placeholder="Enter Ward Name Here" value="<?php echo $ward ?>">
                             </div>
                             <div class="form-group">
                                           <label for="town">Nearest Town</label>
-                                          <input type="text" class="form-control" id="town" name="town" placeholder="Enter Town Name Here">
+                                          <input type="text" class="form-control" id="town" name="town" placeholder="Enter Town Name Here" value="<?php echo $nearestTown ?>">
                             </div>
                             <div class="form-group">
                                           <label for="gps">GPS Values</label>
-                                          <input type="text" class="form-control" id="gps" name="gps" placeholder="Longitude, Latitude">
+                                          <input type="text" class="form-control" id="gps" name="gps" placeholder="Longitude, Latitude" value="<?php echo $gpsValues ?>">
                             </div>
                             <div class="form-group">
                                           <label for="location">Location of Household</label>
-                                          <select class="form-control" name="location">
+                                          <select class="form-control" name="location" value="<?php echo $householdLocation ?>">
                                           <option>Urban</option>
                                           <option>Peri-Urban</option> 
                                           <option>Rural</option>                                          
@@ -292,7 +300,7 @@
                             </div>
                             <div class="form-group">
                                           <label for="phone">Mobile Phone Number</label>
-                                          <input type="phone" class="form-control" id="phone" name="phone" placeholder="+254711888888">
+                                          <input type="phone" class="form-control" id="phone" name="phone" placeholder="+254711888888" value="<?php echo $phoneNo ?>">
                             </div>
                             <div class="box-footer">
                     <center><button type="submit" class="btn btn-primary">Next</button></center>
@@ -302,14 +310,14 @@
                       <dd class="accordion__content">
                         <div class="form-group">
                                           <label for="gridconnected">Are you connected to the grid?</label>
-                                          <select class="form-control" name="gridconnection">
+                                          <select class="form-control" name="gridconnection" value="<?php echo $connected ?>">
                                           <option>Yes</option>
                                           <option>No</option>                                           
                                         </select>
                     </div>
                     <div class="form-group">
                                           <label for="periodconnected">For how long?</label>
-                                          <select class="form-control" name="periodconnected">
+                                          <select class="form-control" name="periodconnected" value="<?php ?>">
                                           <option>Less than 6 months</option>
                                           <option> 6 - 12 months</option>   
                                           <option> 1-3 years</option>
@@ -323,23 +331,23 @@
                       <label>
                         <input type="checkbox"> Solar Panel (W)
                       </label>
-                      <input type="number" class="form-control" id="solar" name="solar" placeholder="How many Watts"/>
+                      <input type="number" class="form-control" id="solar" name="solar" placeholder="How many Watts" value="<?php echo $solarPanelPower ?>" />
                       <label>
                         <input type="checkbox"> Biogas Digester (m3)
                       </label>
-                    <input type="number" class="form-control" id="biogas" name="biogas" placeholder="How many m3"/>
+                    <input type="number" class="form-control" id="biogas" name="biogas" placeholder="How many m3" value="<?php echo $biogasDigestorPower ?>"/>
                       <label>
                         <input type="checkbox"> Diesel Generator (kVA)
                       </label>
-                    <input type="number" class="form-control" id="diesel" name="diesel" placeholder="How many kVA"/>
+                    <input type="number" class="form-control" id="diesel" name="diesel" placeholder="How many kVA" value="<?php echo $dieselGeneratorPower ?>" />
                       <label>
                         <input type="checkbox"> Battery System (Ah)
                       </label>
-                    <input type="number" class="form-control" id="Battery" name="battery" placeholder="How many Ah"/>
+                    <input type="number" class="form-control" id="Battery" name="battery" placeholder="How many Ah" value="<?php echo $batterySystemPower ?>" />
                       <label>
                         <input type="checkbox"> Wind (W)
                       </label>
-                      <input type="number" class="form-control" id="wind" name="wind" placeholder="How many Watts"/>
+                      <input type="number" class="form-control" id="wind" name="wind" placeholder="How many Watts" value="<?php echo $windPower ?>"/>
                     </div>
                      </div>
                      <div class="form-group">
@@ -383,27 +391,27 @@
                       <label>
                         <input type="checkbox"> Solar Lighting
                       </label>
-                      <input type="number" class="form-control" id="solarlighting" name="solarlighting" placeholder="How many?"/>
+                      <input type="number" class="form-control" id="solarlighting" name="solarlighting" placeholder="How many?" value="<?php echo $solarBulbsNo ?>" />
                       <label>
                         <input type="checkbox"> Electric Light Bulbs
                       </label>
-                    <input type="number" class="form-control" id="bulbs" name="bulbs" placeholder="How many?"/>
+                    <input type="number" class="form-control" id="bulbs" name="bulbs" placeholder="How many?" value="<?php echo $electricBulbsNo ?>"/>
                       <label>
                         <input type="checkbox"> Koroboi
                       </label>
-                    <input type="number" class="form-control" id="koroboi" name="koroboi" placeholder="How many?"/>
+                    <input type="number" class="form-control" id="koroboi" name="koroboi" placeholder="How many?" value="<?php echo $koroboiNo ?>" />
                       <label>
                         <input type="checkbox"> Paraffin Lamp
                       </label>
-                    <input type="number" class="form-control" id="paraffinlamp" name="paraffinlamp" placeholder="How many?"/>
+                    <input type="number" class="form-control" id="paraffinlamp" name="paraffinlamp" placeholder="How many?" value="<?php echo $paraffinLampNo ?>"/>
                       <label>
                         <input type="checkbox"> Gas Lamp
                       </label>
-                      <input type="number" class="form-control" id="gaslamp" name="gaslamp" placeholder="How many?"/>
+                      <input type="number" class="form-control" id="gaslamp" name="gaslamp" placeholder="How many?" value="<?php echo $gasLampNo ?>"/>
                       <label>
                         <input type="checkbox"> Battery Torch
                       </label>
-                      <input type="number" class="form-control" id="batterytorch" name="batterytorch" placeholder="How many?"/>
+                      <input type="number" class="form-control" id="batterytorch" name="batterytorch" placeholder="How many?" value="<?php echo $batteryTorchNo ?>" />
                     </div>
                      </div>
                       <div class="form-group">
@@ -485,10 +493,10 @@
                       <label >
                          How many people reside in your household?
                       </label>
-                      <input type="number" class="form-control" id="people" name="people" placeholder="How many?"/>
+      <input type="number" class="form-control" min="1" id="people" name="people" placeholder="How many?" value="<?php echo $householdSize ?>"/>
                       <div class="form-group">
                                           <label for="type">Type of Household</label>
-                                          <select class="form-control" name="type">
+                                          <select class="form-control" name="type" value="<?php echo $householdType ?>" >
                                           <option>Married - Monogamous</option>
                                           <option>Married - Polygamous</option> 
                                           <option>Single Parent</option> 
@@ -498,7 +506,7 @@
                             </div>
                             <div class="form-group">
                                           <label for="roof">House Roof Structure</label>
-                                          <select class="form-control" name="roof">
+                                          <select class="form-control" name="roof" value="<?php echo $roofStructure ?>" >
                                           <option>Grass/Reeds</option>
                                           <option>Mud</option> 
                                           <option>Wood</option> 
@@ -510,7 +518,7 @@
                             </div>
                             <div class="form-group">
                                           <label for="wall">Wall Structure</label>
-                                          <select class="form-control" name="wall">
+                                          <select class="form-control" name="wall" value="<?php echo $wallStructure ?>">
                                           <option>Grass/Reeds</option>
                                           <option>Mud</option> 
                                           <option>Wood</option> 
@@ -522,7 +530,7 @@
                             </div>
                             <div class="form-group">
                                           <label for="water">Source of drinking water</label>
-                                          <select class="form-control" name="water">
+                                          <select class="form-control" name="water" value="<?php echo $drinkingWaterSource ?>">
                                           <option>Own tap</option>
                                           <option>Own well</option> 
                                           <option>Own borehole</option> 
@@ -533,7 +541,7 @@
                                         </div>
                                         <div class="form-group">
                                           <label for="roof">How many rooms does your household have? (Including external kitchen and toilets) </label>
-                                          <input type="number" class="form-control" id="rooms" name="rooms" placeholder="How many? e.g. 10"/>
+                                          <input type="number" class="form-control" id="rooms" name="rooms" min="1" placeholder="How many? e.g. 10" value="<?php echo $householdRooms ?>" />
                                         
                             </div>
                                         <div class="form-group">
@@ -544,12 +552,12 @@
                             <label>
                              How many people in your household have an income?
                             </label>
-                            <input type="number" class="form-control" id="incomepeople" name="incomepeople" placeholder="How many?"/>
+                            <input type="number" class="form-control" id="incomepeople" name="incomepeople" placeholder="How many?" value="<?php echo $earningPeopleNo ?>"/>
                           </div>
                            
                               <div class="form-group">
                                           <label for="roof">What is the MAIN source of income? </label>
-                                          <select class="form-control" name="income">
+                                          <select class="form-control" name="income" value="<?php echo $mainSourceOfIncome ?>">
                                           <option>Crop agriculture</option>
                                           <option>Livestock</option> 
                                           <option>Employment</option> 
@@ -562,7 +570,7 @@
                             </div>
                              <div class="form-group">
                                           <label for="roof">What is the estimated combined source of income in your household per month  </label>
-                                          <select class="form-control" name="income">
+                                          <select class="form-control" name="income" value="<?php echo $totalIncome ?>">
                                           <option>Less than 20,000</option>
                                           <option>20,001 – 40,000</option> 
                                           <option>40,001 – 60,000</option> 

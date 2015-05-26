@@ -23,43 +23,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-  <meta name="viewport" content="initial-scale=5.0, user-scalable=no">
-    <meta charset="utf-8">
-    
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
-    <style>
-      #map-canvas {
-        height: 100%;
-        margin: 0px;
-        padding: 0px
-      }
-    </style>
-    <script>
-function initialize() {
-  var myLatlng = new google.maps.LatLng(-1.2921,36.8219);
-  var mapOptions = {
-    zoom: 10,
-    center: myLatlng
-  }
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-  var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'Hello World!'
-  });
-}
-
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
-    </script>
   </head>
   <body class="skin-blue">
     <div class="wrapper">
       
       <header class="main-header">
-        <a href="../../index1.html" class="logo"><b>HEDA</b></a>
+        <a href="../../index.html" class="logo"><b>HEDA</b></a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
@@ -73,7 +42,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
             <ul class="nav navbar-nav">
               <!-- Messages: style can be found in dropdown.less-->
               
-                
+              <!-- Notifications: style can be found in dropdown.less -->
+              
+              <!-- Tasks: style can be found in dropdown.less -->
+              
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -86,21 +58,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
                       [First Name][Surname] - [Role]
-                      <small>Member since Nov. 2012</small>
+                      <small>Member since [RegistrationMonth][RegistrationYear]</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
-                  <li class="user-body">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </li>
+                  
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
@@ -172,7 +134,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
               </a>
               <ul class="treeview-menu">
                 <li><a href="respondents.html"><i class="fa fa-circle-o"></i> Respondents</a></li>
-                <li><a href="enumerators.html"><i class="fa fa-circle-o"></i> Enumerators</a></li>
+                <li><a href="enumerators.html"><i class="fa fa-circle-o"></i> Enumerators</a></li>s
              </ul>
             </li>
             <li class="treeview">
@@ -213,13 +175,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-           Enumerators' Map
+            View Respondent's Details
             <small></small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Distribution Maps</a></li>
-            <li class="active">Enumerators</li>
+            <li><a href="../../index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">User</li>
+            <li class="active">View User Details</li>
           </ol>
         </section>
 
@@ -229,13 +191,18 @@ google.maps.event.addDomListener(window, 'load', initialize);
             <div class="col-xs-12">
               
 
-             
-                
-                
-    
- 
-    <div id="map-canvas"></div>
- 
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Respondents Details</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <?php //made the path relative for testing locally...will make it absolute later
+                  
+                  require 'C:\wamp\www\SuperCool-Heda\classes\UserInfo.php';
+                  $userInfo = new UserInfo();
+                  $userInfo->getUsers();
+                  ?>
+                </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -243,9 +210,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
       </div><!-- /.content-wrapper -->
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.0
+          <b>Version</b> 1.0
         </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://eedadvisory.com">EED Advisory</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2015 <a href="http://eedadvisory.com">EED Advisory</a>.</strong> All rights reserved.
       </footer>
     </div><!-- ./wrapper -->
 
