@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 //made the path relative for testing locally...will make it absolute later
+//Hey Betty
 require_once 'C:\wamp\www\SuperCool-Heda\classes\UserInfo.php';
 require_once 'C:\wamp\www\SuperCool-Heda\classes\ModuleParameters.php';
 
