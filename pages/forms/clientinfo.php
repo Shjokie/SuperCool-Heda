@@ -1,6 +1,8 @@
 <?php
 $firstName=$surName=$gender=$county=$ward=$nearestTown=$gpsValues=$householdLocation=$phoneNo=$householdTenure=$connected=$solarPanelPower=$biogasDigestorPower=$dieselGeneratorPower=$batterySystemPower= $windPower=$charcoalUse= $firewoodUse= $paraffinUse= $briquttesUse=$lpgUse= $solarBulbsNo= $electricBulbsNo= $koroboiNo=$paraffinLampNo= $gasLampNo= $batteryTorchNo= $blackwhiteTvNo=$colouredTvNo= $mobilePhoneNo= $radioNo= $dvdPlayerNo= $fridgeNo=$electricWaterHeaterNo= $computerNo= $electricIronboxNo= $householdSize=$householdType= $roofStructure= $wallStructure= $drinkingWaterSource=$householdRooms= $earningPeopleNo= $mainSourceOfIncome= $totalIncome="test";
 
+require_once 'C:\wamp\www\SuperCool-Heda\classes\ModuleParameters.php';
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
 }
@@ -14,24 +16,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>AdminLTE 2 | Widgets</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- Bootstrap 3.3.2 -->
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Font Awesome Icons -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Ionicons -->
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- Theme style -->
     <link href="../../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
     <link href="../../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body class="skin-blue">
     <div class="wrapper">
@@ -127,7 +117,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <ul class="treeview-menu">
                 <li><a href="clientinfo.php"><i class="fa fa-circle-o"></i> Add new Respondents</a></li>
                 <li><a href="viewclients1.html"><i class="fa fa-circle-o"></i> View Respondents</a></li>
-                <li><a href="clientinfo.php"><i class="fa fa-circle-o"></i>Edit Respondents details</a></li>
+                
                 
               </ul>
             </li>
@@ -223,59 +213,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                              <div class="form-group">
                                           <label for="surname">Gender</label>
                                         <select class="form-control" name="gender" value="<?php echo $gender; ?>">
-                                          <option>Male</option>
-                                          <option>Female</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
                                         </select>
                             </div>
                             <div class="form-group">
                                           <label for="counties">County</label>
-                                        <select class="form-control" name="county" value="<?php echo $county ?>">                                           
-                                          <option>Baringo.</option>
-                                          <option>Bomet.</option>
-                                          <option>Bung'oma.</option>
-                                          <option>Busia.</option>
-                                          <option>Embu.</option>
-                                          <option>Elgeyo/Marakwet.</option>
-                                          <option>Homa Bay.</option>
-                                          <option>Isiolo.</option>
-                                          <option>Garissa</option>
-                                          <option>Kajiado.</option>
-                                          <option>Kakamega.</option>
-                                          <option>Kericho.</option>
-                                          <option>Kiambu.</option>
-                                          <option>Kilifi</option>
-                                          <option>Kirinyaga.</option>
-                                          <option>Kisii.</option>
-                                          <option>Kisumu.</option>
-                                          <option>Kitui.</option>
-                                          <option>Kwale</option>
-                                          <option>Laikipia.</option>
-                                          <option>Makueni.</option>
-                                          <option>Lamu</option>
-                                          <option>Meru.</option>
-                                          <option>Marsabit.</option>
-                                          <option>Mandera</option>
-                                          <option>Migori.</option>
-                                          <option>Murang'a</option>.
-                                          <option>Nairobi City.</option>
-                                          <option>Nakuru.</option>
-                                          <option>Narok.</option>
-                                          <option>Nyamira</option>
-                                          <option>Nyandarua</option>
-                                          <option>Nandi.</option>
-                                          <option>Nyeri.</option>
-                                          <option>Machakos.</option>
-                                          <option>Samburu.</option>
-                                          <option>Siaya.</option>
-                                          <option>Taita Taveta</option>
-                                          <option>Tana River</option>
-                                          <option>Tharaka Nithi.</option>
-                                          <option>Trans Nzoia.</option>
-                                          <option>Turkana.</option>
-                                          <option>Uasin Gishu.</option>
-                                          <option>Vihiga.</option>
-                                          <option>Wajir</option>
-                                          <option>West Pokot.</option>                                        
+                                        <select class="form-control" name="county" value="<?php echo $county ?>">  
+                                            <option value="">-- Select County --</option>
+                                           <?php
+                                            $module = new ModuleParameters();
+                                            $module->fetchCounty();
+                                            ?>                                       
                                         </select>
                             </div>
                             <div class="form-group">
@@ -302,6 +251,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                           <label for="phone">Mobile Phone Number</label>
                                           <input type="phone" class="form-control" id="phone" name="phone" placeholder="+254711888888" value="<?php echo $phoneNo ?>">
                             </div>
+                            <div class="form-group">
+                                          <label for="location">Household tenure</label>
+                                          <select class="form-control" name="location">
+                                          <option>Rented</option>
+                                          <option>Owned</option> 
+                                          <option>Mortgage</option>                                          
+                                        </select>
+                            </div>
                             <div class="box-footer">
                     <center><button type="submit" class="btn btn-primary">Next</button></center>
                   </div>
@@ -315,16 +272,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                           <option>No</option>                                           
                                         </select>
                     </div>
-                    <div class="form-group">
-                                          <label for="periodconnected">For how long?</label>
-                                          <select class="form-control" name="periodconnected" value="<?php ?>">
-                                          <option>Less than 6 months</option>
-                                          <option> 6 - 12 months</option>   
-                                          <option> 1-3 years</option>
-                                          <option>More than 3 years</option>
-
-                                        </select>
-                    </div>
+                    
                      <div class="form-group">
                                           <label for="periodconnected">Do you have any of the following?</label>
                      <div class="checkbox">
