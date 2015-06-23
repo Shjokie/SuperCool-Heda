@@ -38,15 +38,16 @@ class UserInfo {
     public function findCountry($id) {
         $db = $this->conn;
         $query = " SELECT title, id FROM country WHERE id = '$id' ";
-        $result = mysqli_query($db, $query);        
+        $result = mysqli_query($db, $query);
         $row = mysqli_fetch_array($result);
         $title = $row['title'];
         return $title;
     }
+
     public function findRole($id) {
         $db = $this->conn;
         $query = " SELECT name FROM roles WHERE id = '$id' ";
-        $result = mysqli_query($db, $query);        
+        $result = mysqli_query($db, $query);
         $row = mysqli_fetch_array($result);
         $title = $row['name'];
         return $title;
@@ -61,6 +62,7 @@ class UserInfo {
         echo "<th >County</th>";
         echo "<th >Role</th>";
         echo "<th >Action</th>";
+        echo "<th ></th>";
         echo "<tbody>";
         while ($row = mysqli_fetch_array($result)) {
             echo "<tr>";
@@ -84,6 +86,27 @@ class UserInfo {
             echo "</td>";
             echo "<td>";
             $id = $row['userID'];
+            $firstname = $row['firstname'];
+            $surname = $row['surname'];
+            $username = $row['username'];
+            $gender = $row['gender'];
+            $phone = $row['phoneNo'];
+            $email = $row['emailaddress'];
+            echo "<form action='edituserdetails.php' method='post'>
+                <input type='hidden' name='id' value=$id>
+                <input type='hidden' name='firstname' value='$firstname'>
+                <input type='hidden' name='surname' value='$surname'>
+                <input type='hidden' name='username' value='$username'>
+                <input type='hidden' name='gender' value='$gender'>
+                <input type='hidden' name='country' value='$country'>
+                <input type='hidden' name='county' value='$county'>
+                <input type='hidden' name='role' value='$role'>
+                <input type='hidden' name='phone' value='$phone'>
+                <input type='hidden' name='email' value='$email'>        
+                <input type='submit' name='submit' class='btn btn-default' value='View'>
+            ";
+            echo "</td>";
+            echo "<td>";
             echo "<form action='' method='get'>
              <a class='btn btn-default' href='delete-user.php?id=$id' role='button'>Delete</a>
             ";

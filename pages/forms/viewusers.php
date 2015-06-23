@@ -146,7 +146,7 @@
               <ul class="treeview-menu">
                 <li><a href="adduser.php"><i class="fa fa-circle-o"></i> Add User</a></li>
                 <li><a href="viewusers.php"><i class="fa fa-circle-o"></i> View Users</a></li>
-                <li><a href="edituserdetails.html"><i class="fa fa-circle-o"></i> Edit User Info</a></li>
+                <li><a href="edituserdetails.php"><i class="fa fa-circle-o"></i> Edit User Info</a></li>
                 
               </ul>
             </li>
